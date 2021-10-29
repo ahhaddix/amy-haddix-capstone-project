@@ -21,11 +21,14 @@ a {
     background-color: rgb(96, 153, 202);
 }
 
-.loading, .error {
+.loading {
     margin: 22px;
     text-align: center;
+    color: black;
 }
 
 .error {
+    margin: 22px;
+    text-align: center;
     color: red;
 }
