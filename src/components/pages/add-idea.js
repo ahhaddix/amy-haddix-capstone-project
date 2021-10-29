@@ -27,7 +27,7 @@ export default class AddIdea extends Component {
             error: false
         })
 
-        fetch("localhost:3000/add-idea", {
+        fetch("https://ajh-capstone-project.herokuapp.com/idea/add", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({
