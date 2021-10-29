@@ -65,10 +65,10 @@ export default class AddIdea extends Component {
                         onChange={this.handleChange}
                     />
 
-                    <input 
-                        type="text" 
+                    <input
+                        type="text"
+                        name="ideaInput"
                         placeholder="Idea"
-                        name="ideaInput" 
                         value={this.state.ideaInput}
                         onChange={this.handleChange}
                     />
