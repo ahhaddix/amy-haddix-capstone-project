@@ -38,11 +38,11 @@ export default class AddIdea extends Component {
         .then(response => response.json())
         .then(data => {
             if (data.id) {
-                this.props.history.push("/items")
+                this.props.history.push("/ideas")
             }
         })
         .catch(error => {
-            console.log("Error adding item ", error)
+            console.log("Error adding idea", error)
 
             this.setState({
                 loading: false,

@@ -12,7 +12,7 @@ export default class Ideas extends Component {
     }
 
     componentDidMount() {
-        fetch("https://ajh-capstone-project.herokuapp.com/idea/get")
+        fetch("https://ajh-capstone-project.herokuapp.com/ideas")
         .then(response => response.json())
         .then(data => {
             this.setState({
