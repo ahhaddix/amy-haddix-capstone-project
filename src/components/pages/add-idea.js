@@ -27,12 +27,12 @@ export default class AddIdea extends Component {
             error: false
         })
 
-        fetch("http://127.0.0.1:5000/", {
+        fetch("localhost:3000/add-idea", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({
                 name: this.state.nameInput,
-                price: parseFloat(this.state.priceInput)
+                idea: parseFloat(this.state.ideaInput)
             })
         })
         .then(response => response.json())

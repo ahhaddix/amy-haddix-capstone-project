@@ -12,11 +12,11 @@ export default class Ideas extends Component {
     }
 
     componentDidMount() {
-        fetch("http://127.0.0.1:5000/")
+        fetch("localhost:3000/ideas")
         .then(response => response.json())
         .then(data => {
             this.setState({
-                items: data,
+                ideas: data,
                 loading: false
             })
         })
@@ -29,8 +29,8 @@ export default class Ideas extends Component {
         })
     }
 
-    renderItems() {
-        const itemsHtml = this.state.ideas.map(item => (
+    renderIdeas() {
+        const ideasHtml = this.state.ideas.map(item => (
             <div className="idea-wrapper" key={idea.id}>
                 <h3>{idea.name}</h3>
                 <p>${idea.ideas.toFixed(2)}</p>
@@ -68,7 +68,7 @@ export default class Ideas extends Component {
                 <div className='ideas-page-wrapper'>
                     <h2>Ideas</h2>
                     <div className="ideas-wrapper">
-                        {this.renderItems()}
+                        {this.renderIdeas()}
                     </div>
                 </div>
             )
