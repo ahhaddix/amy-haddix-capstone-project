@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { response } from 'express';
 
 export default class Ideas extends Component {
     constructor(props) {
@@ -14,17 +13,27 @@ export default class Ideas extends Component {
     }
 
     componentDidMount() {
-        axios
-        .get("https://ajh-capstone-project.herokuapp.com/idea/get"
+       fetch("https://ajh-capstone-project.herokuapp.com/idea/get"
             )
-            //.then(response => response.json())
+            .then(response => response.json())
             .then(data => {
-                this.setState({getIdeas: response.data.ideas
+                this.setState({//getIdeas: response.data.ideas
+                    ideas: data,
+                    loading:false
                 })
             })
         .catch(error => {
             console.log("errorIdeas", error)
+            this.setState(
+            {
+                error: true,
+                loading: false
+            }
+            )
+            
         });
+
+        
 
 
 
@@ -50,6 +59,8 @@ export default class Ideas extends Component {
                 </div>
             )
         }
+
+
 
         else if (this.state.error) {
             return (
