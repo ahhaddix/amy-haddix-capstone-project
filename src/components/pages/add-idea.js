@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import axios from 'axios';
 
 export default class AddIdea extends Component {
     constructor(props) {
@@ -27,14 +28,13 @@ export default class AddIdea extends Component {
             error: false
         })
 
-        fetch("https://ajh-capstone-project.herokuapp.com/idea/add", {
-            method: "POST",
-            headers: { "content-type": "application/json" },
-            body: JSON.stringify({
+        axios
+        .post("https://ajh-capstone-project.herokuapp.com/idea/add", {
                 name: this.state.nameInput,
                 idea: parseFloat(this.state.ideaInput)
             })
-        })
+        
+
         .then(response => response.json())
         .then(data => {
             if (data.id) {
