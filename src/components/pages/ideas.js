@@ -33,7 +33,6 @@ export default class Ideas extends Component {
         const ideasHtml = this.state.ideas.map(item => (
             <div className="idea-wrapper" key={idea.id}>
                 <h3>{idea.name}</h3>
-                <p>${idea.ideas.toFixed(2)}</p>
             </div>
         ))
 
