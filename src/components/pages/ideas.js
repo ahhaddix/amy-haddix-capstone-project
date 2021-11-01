@@ -34,10 +34,10 @@ export default class Ideas extends Component {
 
     
     renderIdeas() {
-        const ideasHtml = this.state.ideas.map(idea=> (
-            <div className="idea-wrapper" key={idea.id}>
-                <h3>{idea.name}</h3>
-                <p>{idea.description}</p>
+        const ideasHtml = this.state.ideas.map(ideas=> (
+            <div className="idea-wrapper" key={ideas.id}>
+                <h3>{ideas.name}</h3>
+                <p>{ideas.idea}</p>
             </div>
         ))
 
