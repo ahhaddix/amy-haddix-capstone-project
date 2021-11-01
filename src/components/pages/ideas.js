@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export default class Ideas extends Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         this.state = {
             ideas: [],
@@ -12,41 +12,37 @@ export default class Ideas extends Component {
         };
     }
 
-    componentDidMount() {
-       fetch("https://ajh-capstone-project.herokuapp.com/idea/get"
-            )
-            .then(response => response.json())
-            .then(data => {
-                this.setState({//getIdeas: response.data.ideas
-                    ideas: data,
-                    loading:false
-                })
-            })
-        .catch(error => {
-            console.log("errorIdeas", error)
-            this.setState(
-            {
-                error: true,
-                loading: false
-            }
-            )
-            
-        });
-
+       
         
+        componentDidMount() {
+            this.grabIdeas();
+            }
 
 
+        grabIdeas() {
+            axios
+            .get("https://ajh-capstone-project.herokuapp.com/idea/get")
+            .then(response => {
+                this.setState({
+                    ideas: response.data,
+                    loading:false
+                }), (error) => {
+            console.log("errorIdeas", error)
+           }
+        })
+        }
 
-    renderIdeas() 
+    
+    renderIdeas() {
         const ideasHtml = this.state.ideas.map(idea=> (
             <div className="idea-wrapper" key={idea.id}>
                 <h3>{idea.name}</h3>
-                <p>{description}</p>
+                <p>{idea.description}</p>
             </div>
         ))
 
         return ideasHtml
-    }
+        }
 
     render() {
         if (this.state.loading) {
@@ -59,6 +55,7 @@ export default class Ideas extends Component {
                 </div>
             )
         }
+        
 
 
 

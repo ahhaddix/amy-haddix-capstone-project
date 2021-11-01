@@ -18,6 +18,7 @@ export default class AddIdea extends Component {
 
     handleChange(event) {
         this.setState({ [event.target.name]: event.target.value })
+        console.log(this.state)
     }
 
     handleSubmit(event) {
@@ -31,11 +32,10 @@ export default class AddIdea extends Component {
         axios
         .post("https://ajh-capstone-project.herokuapp.com/idea/add", {
                 name: this.state.nameInput,
-                idea: parseFloat(this.state.ideaInput)
+                idea: this.state.ideaInput
             })
         
 
-        .then(response => response.json())
         .then(data => {
             if (data.id) {
                 this.props.history.push("/ideas")
